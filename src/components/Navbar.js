@@ -8,7 +8,7 @@ function Navbar() {
         <NavItem>item 2</NavItem>
         <NavItem>item 3</NavItem>
       </ul>
-      <div className="font-bold text-xl">Dovis Technology</div>
+      <div className="font-bold text-xl text-teal-900">Dovis Technology</div>
     </div>
   );
 }
