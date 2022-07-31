@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "../components/Button";
 
 function Colorizer() {
-  const [color, setColor] = useState("#FFF");
+  const [color, setColor] = useState("#000000");
 
   const generateColor = () => {
     // const generatedColor = Math.floor(Math.random() * 16777215).toString(16);
@@ -37,7 +37,7 @@ function Colorizer() {
 
   return (
     <div
-      className="flex flex-col h-screen justify-center items-center"
+      className="flex flex-col h-screen justify-center items-center transition-all"
       style={{ backgroundColor: color }}
     >
       <div className="text-6xl font-bold mb-8 text-white shadow-black drop-shadow-lg">
