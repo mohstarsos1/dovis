@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Button from "../components/Button";
+import { MdContentCopy } from "react-icons/md";
 
 function Colorizer() {
   const [color, setColor] = useState("#000000");
@@ -40,10 +41,16 @@ function Colorizer() {
       className="flex flex-col h-[calc(100vh_-_64px)] justify-center items-center transition-all"
       style={{ backgroundColor: color }}
     >
-      <div className="text-6xl font-bold mb-8 text-white shadow-black drop-shadow-lg">
-        {color}
+      <div
+        className="text-6xl font-bold mb-8 text-white shadow-black drop-shadow-lg flex items-center"
+        onClick={() => navigator.clipboard.writeText(color)}
+      >
+        <div className="mr-4">{color}</div>
+        <MdContentCopy className="cursor-pointer text-5xl hover:text-gray-400" />
       </div>
-      <Button onClick={() => generateColor()}>Generate Color</Button>
+      <Button onClick={() => generateColor()} size="lg">
+        Generate Color
+      </Button>
     </div>
   );
 }
