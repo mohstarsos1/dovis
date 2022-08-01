@@ -37,7 +37,7 @@ function Colorizer() {
 
   return (
     <div
-      className="flex flex-col h-screen justify-center items-center transition-all"
+      className="flex flex-col h-[calc(100vh_-_64px)] justify-center items-center transition-all"
       style={{ backgroundColor: color }}
     >
       <div className="text-6xl font-bold mb-8 text-white shadow-black drop-shadow-lg">
