@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "../components/Button";
 import { MdContentCopy } from "react-icons/md";
+import Toast from "../components/Toast";
 
 function Colorizer() {
   const [color, setColor] = useState("#000000");
@@ -51,6 +52,8 @@ function Colorizer() {
       <Button onClick={() => generateColor()} size="lg">
         Generate Color
       </Button>
+
+      <Toast>Hex code copied successfully.</Toast>
     </div>
   );
 }
