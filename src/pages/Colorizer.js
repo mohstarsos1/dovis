@@ -1,10 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../components/Button";
 import { MdContentCopy } from "react-icons/md";
 import Toast from "../components/Toast";
 
 function Colorizer() {
   const [color, setColor] = useState("#000000");
+  const [showToast, setShowToast] = useState(false);
+
+  useEffect(() => {
+    const toastInterval = setInterval(() => {
+      setShowToast(false);
+    }, 3000);
+    return () => {
+      clearInterval(toastInterval);
+    };
+  }, [showToast]);
 
   const generateColor = () => {
     // const generatedColor = Math.floor(Math.random() * 16777215).toString(16);
@@ -37,6 +47,11 @@ function Colorizer() {
     setColor("#" + generatedColor);
   };
 
+  const handleClipboard = () => {
+    navigator.clipboard.writeText(color);
+    setShowToast(true);
+  };
+
   return (
     <div
       className="flex flex-col h-[calc(100vh_-_64px)] justify-center items-center transition-all"
@@ -44,7 +59,7 @@ function Colorizer() {
     >
       <div
         className="text-6xl font-bold mb-8 text-white shadow-black drop-shadow-lg flex items-center"
-        onClick={() => navigator.clipboard.writeText(color)}
+        onClick={() => handleClipboard()}
       >
         <div className="mr-4">{color}</div>
         <MdContentCopy className="cursor-pointer text-5xl hover:text-gray-400" />
@@ -53,7 +68,7 @@ function Colorizer() {
         Generate Color
       </Button>
 
-      <Toast>Hex code copied successfully.</Toast>
+      {showToast && <Toast>Hex code copied successfully.</Toast>}
     </div>
   );
 }
