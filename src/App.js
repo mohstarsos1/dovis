@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Weather from "./pages/Weather";
 import Colorizer from "./pages/Colorizer";
+import Todo from "./pages/Todo";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="weather" element={<Weather />} />
         <Route path="colorizer" element={<Colorizer />} />
+        <Route path="todo" element={<Todo />} />
       </Routes>
     </div>
   );
