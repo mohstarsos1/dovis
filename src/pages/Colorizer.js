@@ -68,7 +68,7 @@ function Colorizer() {
         Generate Color
       </Button>
 
-      {showToast && <Toast>Hex code copied successfully.</Toast>}
+      {showToast && <Toast type="success">Hex code copied successfully.</Toast>}
     </div>
   );
 }
