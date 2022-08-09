@@ -11,7 +11,9 @@ function Navbar() {
           </NavItem>
         ))}
       </ul>
-      <div className="font-bold text-xl text-teal-900">Dovis Technology</div>
+      <div className="font-bold text-xl text-teal-900 mr-2">
+        Dovis Technology
+      </div>
     </div>
   );
 }
