@@ -3,7 +3,7 @@ import { routes } from "../utils/RoutesAddress";
 
 function Navbar() {
   return (
-    <div className="bg-gray-200 py-4 px-2 shadow-lg flex justify-between">
+    <div className="bg-zinc-300 h-[60px] shadow-lg fixed w-screen flex justify-between items-center z-10">
       <ul className="flex space-x-4">
         {routes.map((item, idx) => (
           <NavItem link={item.path} isHref={item.isHref} key={idx}>
