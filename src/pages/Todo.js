@@ -13,7 +13,9 @@ function Todo() {
             className="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:shadow-outline focus:outline-none w-full"
             placeholder="Item name ..."
           />
-          <Button transparent>Add Item</Button>
+          <Button type="primary" size="sm">
+            Add Item
+          </Button>
         </div>
         <div className="items-start justify-start mt-6">
           <ol className="list-decimal list-inside">

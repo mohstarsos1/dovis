@@ -64,7 +64,7 @@ function Colorizer() {
         <div className="mr-4">{color}</div>
         <MdContentCopy className="cursor-pointer text-5xl hover:text-gray-400" />
       </div>
-      <Button onClick={() => generateColor()} size="lg">
+      <Button onClick={() => generateColor()} size="lg" type="basic">
         Generate Color
       </Button>
 
