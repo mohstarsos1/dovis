@@ -1,4 +1,4 @@
-function Button({ children, onClick, size, type }) {
+function Button(props) {
   const ButtonType = {
     basic:
       "bg-white active:bg-gray-200 text-gray-700 font-bold rounded whitespace-nowrap shadow-lg",
@@ -14,11 +14,11 @@ function Button({ children, onClick, size, type }) {
     lg: "py-3 px-6 text-lg",
   };
 
-  const classNames = ButtonType[type] + " " + ButtonSize[size];
+  const classNames = ButtonType[props.type] + " " + ButtonSize[props.size];
 
   return (
-    <button onClick={onClick} className={classNames}>
-      {children}
+    <button {...props} className={classNames}>
+      {props.children}
     </button>
   );
 }
