@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../components/Button";
 import Textbox from "../components/Textbox";
 
@@ -6,7 +6,18 @@ function Todo() {
   const [tasks, setTasks] = useState([]);
   const [itemName, setItemName] = useState("");
 
-  const handleClick = () => {
+  useEffect(() => {
+    const items = localStorage.getItem("tasks");
+    if (items) {
+      setTasks(JSON.parse(items));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
+
+  const handleClick = async () => {
     setTasks([...tasks, itemName]);
     setItemName("");
   };
@@ -27,7 +38,7 @@ function Todo() {
           </Button>
         </div>
         <div className="items-start justify-start mt-6">
-          <ol className="list-decimal list-inside">
+          <ol className="list-disc list-inside">
             {tasks?.map((item, idx) => (
               <li key={idx}>{item}</li>
             ))}
