@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "../components/Button";
+import Textbox from "../components/Textbox";
 
 function Todo() {
   return (
@@ -7,12 +8,7 @@ function Todo() {
       <div className="w-1/3">
         <h1 className="text-lg font-bold text-center">To Do List</h1>
         <div className="flex mt-6 items-center justify-center">
-          <input
-            type="text"
-            autoFocus
-            className="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:shadow-outline focus:outline-none w-full"
-            placeholder="Item name ..."
-          />
+          <Textbox placeholder="Item name..." autoFocus />
           <Button type="primary" size="sm">
             Add Item
           </Button>
