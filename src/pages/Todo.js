@@ -19,8 +19,10 @@ function Todo() {
   }, [tasks]);
 
   const handleAddClick = () => {
-    setTasks([...tasks, { name: itemName, isComplete: false }]);
-    setItemName("");
+    if (itemName) {
+      setTasks([...tasks, { name: itemName, isComplete: false }]);
+      setItemName("");
+    }
   };
 
   const handleItemClick = (idx) => {
@@ -29,11 +31,15 @@ function Todo() {
     setTasks(newTasks);
   };
 
+  const handleClearAllClick = () => {
+    setTasks([]);
+  };
+
   return (
     <div className="flex flex-col items-center justify-center pt-[80px]">
       <div className="w-1/3">
         <h1 className="text-lg font-bold text-center">To Do List</h1>
-        <div className="flex mt-6 items-center justify-center">
+        <div className="flex mt-6 items-center justify-center space-x-1">
           <Textbox
             placeholder="Item name..."
             onChange={(e) => setItemName(e.target.value)}
@@ -42,6 +48,9 @@ function Todo() {
           />
           <Button type="primary" size="sm" onClick={() => handleAddClick()}>
             Add Item
+          </Button>
+          <Button type="delete" size="sm" onClick={() => handleClearAllClick()}>
+            Clear All
           </Button>
         </div>
         <div className="items-start justify-start mt-6">
