@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Button from "../components/Button";
 import Textbox from "../components/Textbox";
+import classNames from "classnames";
 
 function Todo() {
   const [tasks, setTasks] = useState([]);
@@ -17,9 +18,15 @@ function Todo() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
-  const handleClick = async () => {
-    setTasks([...tasks, itemName]);
+  const handleAddClick = () => {
+    setTasks([...tasks, { name: itemName, isComplete: false }]);
     setItemName("");
+  };
+
+  const handleItemClick = (idx) => {
+    const newTasks = [...tasks];
+    newTasks[idx].isComplete = !newTasks[idx].isComplete;
+    setTasks(newTasks);
   };
 
   return (
@@ -33,14 +40,25 @@ function Todo() {
             value={itemName}
             autoFocus
           />
-          <Button type="primary" size="sm" onClick={() => handleClick()}>
+          <Button type="primary" size="sm" onClick={() => handleAddClick()}>
             Add Item
           </Button>
         </div>
         <div className="items-start justify-start mt-6">
           <ol className="list-disc list-inside">
             {tasks?.map((item, idx) => (
-              <li key={idx}>{item}</li>
+              <li
+                key={idx}
+                onClick={() => handleItemClick(idx)}
+                className={classNames(
+                  {
+                    "line-through text-green-500": item.isComplete,
+                  },
+                  "cursor-pointer hover:text-green-500 transition-all"
+                )}
+              >
+                {item.name}
+              </li>
             ))}
           </ol>
         </div>
