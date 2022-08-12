@@ -35,6 +35,12 @@ function Todo() {
     setTasks([]);
   };
 
+  const handleKeypress = (e) => {
+    if (e.code === "Enter" || e.code === "NumpadEnter") {
+      handleAddClick();
+    }
+  };
+
   return (
     <div className="flex flex-col items-center justify-center pt-[80px]">
       <div className="w-1/3">
@@ -43,6 +49,7 @@ function Todo() {
           <Textbox
             placeholder="Item name..."
             onChange={(e) => setItemName(e.target.value)}
+            onKeyPress={handleKeypress}
             value={itemName}
             autoFocus
           />
