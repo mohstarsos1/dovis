@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Button from "../components/Button";
 import Textbox from "../components/Textbox";
+import Toast from "../components/Toast";
 import classNames from "classnames";
 
 function Todo() {
   const [tasks, setTasks] = useState([]);
   const [itemName, setItemName] = useState("");
+  const [showToast, setShowToast] = useState(false);
 
   useEffect(() => {
     const items = localStorage.getItem("tasks");
@@ -32,7 +34,7 @@ function Todo() {
   };
 
   const handleClearAllClick = () => {
-    setTasks([]);
+    tasks.length > 0 ? setTasks([]) : setShowToast(true);
   };
 
   const handleKeypress = (e) => {
@@ -79,6 +81,7 @@ function Todo() {
           </ol>
         </div>
       </div>
+      {showToast && <Toast type="error">All item has removed.</Toast>}
     </div>
   );
 }
