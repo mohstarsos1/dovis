@@ -19,7 +19,7 @@ function Toast({ children, type }) {
     icon = <MdInfoOutline className="text-blue-500 text-2xl" />;
   }
   return (
-    <div className="min-w-[250px] bg-white shadow-lg py-4 rounded px-2 font-bold absolute top-20 right-2 flex items-center">
+    <div className="min-w-[250px] bg-gray-100 shadow-lg py-4 rounded px-2 font-bold absolute top-20 right-2 flex items-center">
       {icon}
       <span className="ml-2">{children}</span>
     </div>
