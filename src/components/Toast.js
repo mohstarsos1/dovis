@@ -4,7 +4,7 @@ import { MdWarningAmber } from "react-icons/md";
 import { MdClose } from "react-icons/md";
 import { MdInfoOutline } from "react-icons/md";
 
-function Toast({ children, type, show, duration, setShowToast }) {
+function Toast({ children, type, show, duration = 3000, setShowToast }) {
   useEffect(() => {
     const toastInterval = setInterval(() => {
       setShowToast(false);

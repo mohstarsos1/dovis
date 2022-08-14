@@ -81,7 +81,9 @@ function Todo() {
           </ol>
         </div>
       </div>
-      {showToast && <Toast type="error">All item has removed.</Toast>}
+      <Toast type="error" show={showToast} setShowToast={setShowToast}>
+        All item has removed.
+      </Toast>
     </div>
   );
 }
