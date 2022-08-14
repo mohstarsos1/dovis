@@ -4,7 +4,7 @@ import { MdContentCopy } from "react-icons/md";
 import Toast from "../components/Toast";
 
 function Colorizer() {
-  const [color, setColor] = useState("#000000");
+  const [color, setColor] = useState("#CCCCCC");
   const [showToast, setShowToast] = useState(false);
 
   const generateColor = () => {
