@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Button from "../components/Button";
 import Textbox from "../components/Textbox";
 import Toast from "../components/Toast";
+import { MdDeleteOutline } from "react-icons/md";
 import classNames from "classnames";
 
 function Todo() {
@@ -43,6 +44,12 @@ function Todo() {
     }
   };
 
+  const handleItemDelete = (idx) => {
+    const newTasks = [...tasks];
+    newTasks.splice(idx, 1);
+    setTasks(newTasks);
+  };
+
   return (
     <div className="flex flex-col items-center justify-center pt-[80px]">
       <div className="w-1/3">
@@ -65,17 +72,22 @@ function Todo() {
         <div className="items-start justify-start mt-6">
           <ol className="list-disc list-inside">
             {tasks?.map((item, idx) => (
-              <li
-                key={idx}
-                onClick={() => handleItemClick(idx)}
-                className={classNames(
-                  {
-                    "line-through text-green-500": item.isComplete,
-                  },
-                  "cursor-pointer hover:text-green-500 transition-all"
-                )}
-              >
-                {item.name}
+              <li key={idx} className="justify-between flex transition-all">
+                <span
+                  onClick={() => handleItemClick(idx)}
+                  className={classNames(
+                    {
+                      "line-through text-green-500": item.isComplete,
+                    },
+                    "cursor-pointer hover:text-green-500"
+                  )}
+                >
+                  {item.name}
+                </span>
+                <MdDeleteOutline
+                  className="text-red-500 text-2xl cursor-pointer hover:text-red-200"
+                  onClick={() => handleItemDelete(idx)}
+                />
               </li>
             ))}
           </ol>
