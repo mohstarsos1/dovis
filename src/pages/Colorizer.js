@@ -7,15 +7,6 @@ function Colorizer() {
   const [color, setColor] = useState("#000000");
   const [showToast, setShowToast] = useState(false);
 
-  useEffect(() => {
-    const toastInterval = setInterval(() => {
-      setShowToast(false);
-    }, 3000);
-    return () => {
-      clearInterval(toastInterval);
-    };
-  }, [showToast]);
-
   const generateColor = () => {
     // const generatedColor = Math.floor(Math.random() * 16777215).toString(16);
     // setColor("#" + generatedColor.toUpperCase());
@@ -68,7 +59,14 @@ function Colorizer() {
         Generate Color
       </Button>
 
-      {showToast && <Toast type="success">Hex code copied successfully.</Toast>}
+      <Toast
+        type="success"
+        show={showToast}
+        duration={3000}
+        setShowToast={setShowToast}
+      >
+        Hex code copied successfully.
+      </Toast>
     </div>
   );
 }
