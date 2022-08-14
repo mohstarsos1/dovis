@@ -50,10 +50,25 @@ function Todo() {
     setTasks(newTasks);
   };
 
+  // const getUncompleteTasks = () => {
+  //   let count = 0;
+  //   tasks.map(item=>{
+  //     if(item.isComplete){
+  //       count +=1;
+  //     }
+  //   })
+  // }
+
   return (
     <div className="flex flex-col items-center justify-center pt-[80px]">
       <div className="w-1/3">
         <h1 className="text-lg font-bold text-center">To Do List</h1>
+        <div className="flex justify-between mt-4">
+          <span>All Tasks: {tasks.length}</span>
+          <span>Uncomplete Tasks: {tasks.length}</span>
+          <span>Complete Tasks: {tasks.length}</span>
+        </div>
+
         <div className="flex mt-6 items-center justify-center space-x-1">
           <Textbox
             placeholder="Item name..."
