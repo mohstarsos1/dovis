@@ -72,20 +72,23 @@ function Todo() {
         <div className="items-start justify-start mt-6">
           <ol className="list-disc list-inside">
             {tasks?.map((item, idx) => (
-              <li key={idx} className="justify-between flex transition-all">
+              <li
+                key={idx}
+                className="justify-between flex transition-all odd:bg-gray-100"
+              >
                 <span
                   onClick={() => handleItemClick(idx)}
                   className={classNames(
                     {
                       "line-through text-green-500": item.isComplete,
                     },
-                    "cursor-pointer hover:text-green-500"
+                    "cursor-pointer hover:text-green-500 w-full"
                   )}
                 >
                   {item.name}
                 </span>
                 <MdDeleteOutline
-                  className="text-red-500 text-2xl cursor-pointer hover:text-red-200"
+                  className="text-red-500 text-3xl cursor-pointer hover:text-red-200"
                   onClick={() => handleItemDelete(idx)}
                 />
               </li>
