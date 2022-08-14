@@ -12,7 +12,7 @@ function Toast({ children, type, show, duration = 3000, setShowToast }) {
     return () => {
       clearInterval(toastInterval);
     };
-  }, [show]);
+  }, [show, duration, setShowToast]);
 
   let icon;
   if (type === "success") {
