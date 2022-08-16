@@ -11,7 +11,7 @@ function Navbar() {
           </NavItem>
         ))}
       </ul>
-      <div className="font-bold text-xl mr-2">Dovis Technology</div>
+      <div className="font-bold text-xl mr-2">{new Date().toDateString()}</div>
     </div>
   );
 }
