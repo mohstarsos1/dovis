@@ -50,14 +50,25 @@ function Todo() {
     setTasks(newTasks);
   };
 
-  // const getUncompleteTasks = () => {
-  //   let count = 0;
-  //   tasks.map(item=>{
-  //     if(item.isComplete){
-  //       count +=1;
-  //     }
-  //   })
-  // }
+  const getUncompleteTasks = () => {
+    let count = 0;
+    for (let item of tasks) {
+      if (!item?.isComplete) {
+        count += 1;
+      }
+    }
+    return count;
+  };
+
+  const getCompleteTasks = () => {
+    let count = 0;
+    for (let item of tasks) {
+      if (item?.isComplete) {
+        count += 1;
+      }
+    }
+    return count;
+  };
 
   return (
     <div className="flex flex-col items-center justify-center pt-[80px]">
@@ -65,8 +76,8 @@ function Todo() {
         <h1 className="text-lg font-bold text-center">To Do List</h1>
         <div className="flex justify-between mt-4">
           <span>All Tasks: {tasks.length}</span>
-          <span>Uncomplete Tasks: {tasks.length}</span>
-          <span>Complete Tasks: {tasks.length}</span>
+          <span>Uncomplete Tasks: {getUncompleteTasks()}</span>
+          <span>Complete Tasks: {getCompleteTasks()}</span>
         </div>
 
         <div className="flex mt-6 items-center justify-center space-x-1">
