@@ -13,7 +13,7 @@ function Weather() {
   }
 
   return (
-    <div>
+    <div className="pt-[80px]">
       <button onClick={() => getWeather()}>get</button>
     </div>
   );

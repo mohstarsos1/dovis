@@ -3,6 +3,7 @@ import Button from "../components/Button";
 import Textbox from "../components/Textbox";
 import Toast from "../components/Toast";
 import { MdDeleteOutline } from "react-icons/md";
+import { MdMode } from "react-icons/md";
 import classNames from "classnames";
 
 function Todo() {
@@ -46,6 +47,13 @@ function Todo() {
 
   const handleItemDelete = (idx) => {
     const newTasks = [...tasks];
+    newTasks.splice(idx, 1);
+    setTasks(newTasks);
+  };
+
+  const handleItemEdit = (idx) => {
+    const newTasks = [...tasks];
+    setItemName(newTasks[idx].name);
     newTasks.splice(idx, 1);
     setTasks(newTasks);
   };
@@ -113,10 +121,16 @@ function Todo() {
                 >
                   {item.name}
                 </span>
-                <MdDeleteOutline
-                  className="text-red-500 text-3xl cursor-pointer hover:text-red-200"
-                  onClick={() => handleItemDelete(idx)}
-                />
+                <span className="flex">
+                  <MdMode
+                    className="text-blue-500 text-3xl cursor-pointer hover:text-blue-200"
+                    onClick={() => handleItemEdit(idx)}
+                  />
+                  <MdDeleteOutline
+                    className="text-red-500 text-3xl cursor-pointer hover:text-red-200"
+                    onClick={() => handleItemDelete(idx)}
+                  />
+                </span>
               </li>
             ))}
           </ol>
