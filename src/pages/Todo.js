@@ -106,9 +106,9 @@ function Todo() {
                   onClick={() => handleItemClick(idx)}
                   className={classNames(
                     {
-                      "line-through text-green-500": item.isComplete,
+                      "line-through text-green-700 blur-[1px]": item.isComplete,
                     },
-                    "cursor-pointer hover:text-green-500 w-full"
+                    "cursor-pointer hover:text-green-700 w-full transition-all"
                   )}
                 >
                   {item.name}
