@@ -10,6 +10,7 @@ function Todo() {
   const [tasks, setTasks] = useState([]);
   const [itemName, setItemName] = useState("");
   const [showToast, setShowToast] = useState(false);
+  const [showEmptyToast, setShowEmptyToast] = useState(false);
 
   useEffect(() => {
     const items = localStorage.getItem("tasks");
@@ -26,6 +27,8 @@ function Todo() {
     if (itemName) {
       setTasks([...tasks, { name: itemName, isComplete: false }]);
       setItemName("");
+    } else {
+      setShowEmptyToast(true);
     }
   };
 
@@ -138,6 +141,13 @@ function Todo() {
       </div>
       <Toast type="error" show={showToast} setShowToast={setShowToast}>
         All item has removed.
+      </Toast>
+      <Toast
+        type="error"
+        show={showEmptyToast}
+        setShowToast={setShowEmptyToast}
+      >
+        Please enter a valid item name.
       </Toast>
     </div>
   );
